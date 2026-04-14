@@ -1,6 +1,6 @@
 # Survey Card Extraction Pipeline
 
-A PySpark / Databricks pipeline that extracts, decodes, and exports **National Housing Survey** card data from a Dynamics 365 CRM Hive backend to per-year Excel files on Azure Data Lake Storage (ADLS).
+A PySpark / Databricks pipeline that extracts, decodes, and exports **National Housing Survey** card data from a Dynamics 365 xxx Hive backend to per-year Excel files on Azure Data Lake Storage (ADLS).
 
 ---
 
@@ -9,9 +9,9 @@ A PySpark / Databricks pipeline that extracts, decodes, and exports **National H
 The pipeline reads raw survey card records from three Hive tables, translates all Dynamics 365 numeric option-set codes to human-readable labels, converts boolean flags to Yes/No, enriches each card with structure and province metadata, then writes one `.xlsx` file per survey year.
 
 ```
-crm.survey_card
-crm.survey_structure          ─► Transform ─► Join ─► Export (ADLS, one file/year)
-crm_shared.province_or_state
+xxx.survey_card
+xxx.survey_structure          ─► Transform ─► Join ─► Export (ADLS, one file/year)
+xxx_shared.province_or_state
 ```
 
 Survey years present in the data (as of last run):
@@ -152,9 +152,9 @@ Edit `config/settings.py` to point to your environment:
 
 ```python
 ADLS_BASE_PATH       = "abfss://sandbox@your-storage-account.dfs.core.windows.net/users/{username}/Extract/"
-HIVE_CARD_TABLE      = "crm.survey_card"
-HIVE_STRUCTURE_TABLE = "crm.survey_structure"
-HIVE_PROVINCE_TABLE  = "crm_shared.province_or_state"
+HIVE_CARD_TABLE      = "xxx.survey_card"
+HIVE_STRUCTURE_TABLE = "xxx.survey_structure"
+HIVE_PROVINCE_TABLE  = "xxx_shared.province_or_state"
 ```
 
 ---
